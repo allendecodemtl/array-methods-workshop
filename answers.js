@@ -65,8 +65,53 @@ function longestWord(str) {
 console.log(longestWord("I am studying at a bootcamp"));
 
 
+
 // Write a function called countVowels that takes a string and returns the number of vowels in the string. You should use Array.prototype.reduce to do your work.
 // For the string "The quick brown fox", the output should be 5 because there is one e, one u, one i and two os.
 // Hint: You can use String.prototype.split again. There is a way to use it to split a string by character. Try to Google it :)
 // Hint 2: You can create an array of vowels and use Array.prototype.indexOf to check if the current letter is a vowel.
+
+function countVowels(str){
+    // Step 1. Split string into an array of characters
+    var strSplit = str.split('');
+    
+    // Step 2. Loop throuh string and return vowels
+    var strVowels = strSplit.filter(function(element){
+        
+        if (
+                element === "a" ||
+                element === "e" ||
+                element === "i" ||
+                element === "o" ||
+                element === "u" 
+            ){
+            return true;
+        } else {
+            return false;
+        }
+         
+    });
+    
+    
+    // Step 3. Count number of vowels in strVowels array
+    var vowelsCounter = strVowels.reduce(function(accumulator, currentValueBeingEvaluated){
+        return accumulator + 1;
+    },0)
+    
+    return vowelsCounter;
+    
+}
+
+console.log(countVowels("The quick brown fox"));
+
+
+
+// Write a function called highLow that takes an array of numbers, and returns an object with a property highest containing the highest number, and a property lowest containing the lowest number, using Array.prototype.reduce.
+// For example, starting with [1, -10, 20, 40, 5], your function should return {highest: 40, lowest: -10}.
+// Hint: Javascript has a special value called Infinity, which is higher than any other number. See if you can initialize your reduce accumulator with Infinity and -Infinity :)
+
+
+
+
+
 
