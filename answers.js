@@ -146,9 +146,31 @@ function highLow(arr){
     
 }
 
+function highLowArrowed(arr) {
+    return {
+        highest: arr.reduce((a, b) => a>b ? a : b),
+        lowest: arr.reduce((a, b) => a<b ? a : b)
+    }
+}
+
+
 console.log(highLow([1,-10,20,40,5]))
 
 
 // Write a function called countChars that takes a string, 
 // and returns an object where the keys are letters, 
 // and the value is the number of times that letter appears.
+
+function countChars(str){
+    return str.split('').reduce( (accu, letter) => {
+        if ( !accu.letter) {
+            accu.letter = 1
+        } 
+        else {
+            accu.letter++
+        }
+        return accu;
+    }, {})
+}
+
+console.log(countChars("hello"));
