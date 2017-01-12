@@ -110,8 +110,45 @@ console.log(countVowels("The quick brown fox"));
 // For example, starting with [1, -10, 20, 40, 5], your function should return {highest: 40, lowest: -10}.
 // Hint: Javascript has a special value called Infinity, which is higher than any other number. See if you can initialize your reduce accumulator with Infinity and -Infinity :)
 
+function highLow(arr){
+    
+    var high = arr.reduce(function(accumulator, currentElement){
+      
+      if (currentElement > accumulator){
+          return currentElement;
+      }  else {
+          return accumulator;
+      }
+        
+    },-Infinity);
+    
+    
+    var low = arr.reduce(function(accumulator, currentElement){
+      
+      if (currentElement < accumulator){
+          return currentElement;
+      }  else {
+          return accumulator;
+      }
+        
+    },Infinity);
+    
+
+    var results = {
+        highest: Infinity,
+        lowest: -Infinity
+    }    
+    
+    results.highest = high;
+    results.lowest = low;
+    
+    return results;
+    
+}
+
+console.log(highLow([1,-10,20,40,5]))
 
 
-
-
-
+// Write a function called countChars that takes a string, 
+// and returns an object where the keys are letters, 
+// and the value is the number of times that letter appears.
